@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020"><title>BitForge | Number System Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">01</span><span><b>BIT<span>FORGE</span></b><small>COMPUTER ORGANIZATION & ARCHITECTURE</small></span></a>
+  <div class="top-right"><span class="online-dot"></span><span>CONVERTER ONLINE</span><i></i><span class="tag">COA MICRO PROJECT</span></div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="eyebrow"><span></span> DIGITAL SYSTEMS PLAYGROUND</div>
+    <h1>One value.<br><em>Four number systems.</em></h1>
+    <p>Convert values between Binary, Octal, Decimal and Hexadecimal. Explore the representations, see the place-value breakdown, and understand how computers encode numbers.</p>
+    <div class="chips"><span>BASE 2 · BINARY</span><span>BASE 8 · OCTAL</span><span>BASE 10 · DECIMAL</span><span>BASE 16 · HEX</span></div>
+  </section>
+
+  <section class="main-grid">
+    <div class="panel convert-panel">
+      <div class="panel-title"><div><small>01 / CONVERTER</small><h2>Convert a number</h2></div><div class="icon-box">⇄</div></div>
+      <label for="numberInput">INPUT VALUE</label>
+      <div class="input-row"><input id="numberInput" type="text" placeholder="e.g. 101101" autocomplete="off" spellcheck="false"><button id="clearBtn" class="clear" aria-label="Clear input">×</button></div>
+      <div class="field-row"><div class="field"><label for="baseSelect">INPUT BASE</label><select id="baseSelect"><option value="2">Binary · Base 2</option><option value="8">Octal · Base 8</option><option value="10" selected>Decimal · Base 10</option><option value="16">Hexadecimal · Base 16</option></select></div><div class="field"><label>SUPPORTED RANGE</label><div class="range-box">0 to large integers</div></div></div>
+      <div class="examples-label">QUICK EXAMPLES</div>
+      <div class="examples"><button data-value="101101" data-base="2">101101₂</button><button data-value="55" data-base="8">55₈</button><button data-value="45" data-base="10">45₁₀</button><button data-value="2D" data-base="16">2D₁₆</button></div>
+      <button id="convertBtn" class="primary"><span>Convert number</span><b>↗</b></button>
+      <p class="hint">Tip: Select the base first, then enter a valid value in that number system.</p>
+    </div>
+    <div class="panel output-panel">
+      <div class="panel-title"><div><small>02 / OUTPUT</small><h2>Equivalent values</h2></div><span class="live">● LIVE RESULT</span></div>
+      <div id="statusBox" class="status-box idle"><span id="statusIcon">◎</span><div><b id="statusTitle">Ready to convert</b><p id="statusText">Enter a value and select its number system.</p></div></div>
+      <div class="outputs">
+        <div class="output-card binary"><div class="output-label"><span class="base-icon">₂</span><span>BINARY <small>BASE 2</small></span><button class="copy" data-copy="binary" title="Copy binary">⧉</button></div><div id="binaryOut" class="output-value">—</div></div>
+        <div class="output-card"><div class="output-label"><span class="base-icon">₈</span><span>OCTAL <small>BASE 8</small></span><button class="copy" data-copy="octal" title="Copy octal">⧉</button></div><div id="octalOut" class="output-value">—</div></div>
+        <div class="output-card"><div class="output-label"><span class="base-icon">₁₀</span><span>DECIMAL <small>BASE 10</small></span><button class="copy" data-copy="decimal" title="Copy decimal">⧉</button></div><div id="decimalOut" class="output-value">—</div></div>
+        <div class="output-card hex"><div class="output-label"><span class="base-icon">₁₆</span><span>HEXADECIMAL <small>BASE 16</small></span><button class="copy" data-copy="hex" title="Copy hexadecimal">⧉</button></div><div id="hexOut" class="output-value">—</div></div>
+      </div>
+      <div class="value-foot"><span>DECIMAL VALUE</span><b id="decimalMetric">—</b><span class="foot-divider"></span><span>INPUT BASE</span><b id="baseMetric">—</b></div>
+    </div>
+  </section>
+
+  <section class="panel breakdown-panel">
+    <div class="panel-title breakdown-title"><div><small>03 / UNDER THE HOOD</small><h2>Place-value breakdown</h2><p>See how each digit contributes to the decimal value.</p></div><span class="math-icon">∑</span></div>
+    <div id="breakdownEmpty" class="breakdown-empty"><span>∑</span><p>Convert a number to see its place-value calculation.</p></div>
+    <div id="breakdown" class="breakdown hidden"></div>
+  </section>
+
+  <section class="bottom-grid">
+    <div class="panel reference-panel">
+      <div class="panel-title"><div><small>04 / REFERENCE</small><h2>Number system guide</h2></div></div>
+      <div class="reference-list">
+        <div><span class="radix binary-radix">2</span><section><b>Binary</b><p>Digits 0 and 1. Used internally by digital computers.</p></section><code>1011₂ = 11₁₀</code></div>
+        <div><span class="radix octal-radix">8</span><section><b>Octal</b><p>Digits 0–7. One octal digit maps to three binary bits.</p></section><code>13₈ = 11₁₀</code></div>
+        <div><span class="radix decimal-radix">10</span><section><b>Decimal</b><p>Digits 0–9. The standard system for everyday counting.</p></section><code>11₁₀ = 11</code></div>
+        <div><span class="radix hex-radix">16</span><section><b>Hexadecimal</b><p>Digits 0–9 and A–F. A compact way to represent binary data.</p></section><code>B₁₆ = 11₁₀</code></div>
+      </div>
+    </div>
+    <div class="panel history-panel">
+      <div class="panel-title"><div><small>05 / RECENT ACTIVITY</small><h2>Conversion history</h2></div><button id="clearHistory" class="small-btn">Clear</button></div>
+      <div id="historyEmpty" class="history-empty"><span>↻</span><p>Your recent conversions will appear here.</p></div>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </section>
+
+  <section class="info-strip"><div><span>01</span><b>Exact conversion</b><p>Each base represents the same numeric value.</p></div><div><span>02</span><b>Input validation</b><p>Invalid digits are caught before conversion.</p></div><div><span>03</span><b>Fast computation</b><p>Built-in integer conversion keeps the tool simple.</p></div></section>
+  <footer><div class="footer-brand"><span class="brand-mark mini">01</span><div><b>BITFORGE</b><small>NUMBER SYSTEM LAB</small></div></div><span>Micro Project · Tippu Ghorpade · Squad 71</span><span>ALLIANCE UNIVERSITY</span></footer>
+</main>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body></html>
